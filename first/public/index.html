@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button onclick="signIn()">SIGN UP WITH GITHUB</button>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+    import { GithubAuthProvider, getAuth, signInWithPopup, } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDRNlSqH7wcIz1gC2hXMz7BEsiXMm761jk",
+      authDomain: "fir-github-9a544.firebaseapp.com",
+      projectId: "fir-github-9a544",
+      storageBucket: "fir-github-9a544.appspot.com",
+      messagingSenderId: "654584567830",
+      appId: "1:654584567830:web:953d9a02ceca86b2157d37"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const provider = new GithubAuthProvider();
+    const auth = getAuth();
+
+    const signIn = () => {
+      signInWithPopup(auth, provider)
+      .then((result)=>{
+        console.log(result);
+      })
+    }   
+
+    window.signIn = signIn
+    </script>
+</body>
+</html>
